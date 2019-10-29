@@ -10,16 +10,21 @@ saveButton.addEventListener("click", () => {
     let favThing = document.querySelector("#favoriteThing")
     let favStore = document.querySelector("#store")
 
-    // updating the dom with the contents of the text box
-    domContainer.innerHTML += `
-    <p>I can purchase ${favThing.value} at ${favStore.value}.</p>
-    `
-
-    // clearing out the input boxes
-    favThing.value = ""
-    favStore.value = ""
-
-    // focusing on the favorite things box
-    favThing.focus()
+    // if all info was filled out, proceed with printing to the DOM, etc.
+    if (favThing.value && favStore.value) {
+        // updating the dom with the contents of the text box
+        domContainer.innerHTML += `
+        <p>I can purchase ${favThing.value} at ${favStore.value}.</p>
+        `
+        
+        // clearing out the input boxes
+        favThing.value = ""
+        favStore.value = ""
+        
+        // focusing on the favorite things box
+        favThing.focus()
+    }  else { // if not all info was filled out, alert user.
+        alert("Please enter in all information before saving.")
+    }
     
 })
